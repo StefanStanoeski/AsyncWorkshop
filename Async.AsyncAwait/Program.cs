@@ -105,11 +105,7 @@ namespace Async.AsyncAwait
 
                 if (_filePathsToProcess.Count > 0)
                 {
-                    _semaphoreLimitingDocsProcessedAtTheSameTime.Wait();
-
                     await ReadFileAsync();
-
-                    _semaphoreLimitingDocsProcessedAtTheSameTime.Release();
                 }
 
                 Monitor.Exit(_lock);
