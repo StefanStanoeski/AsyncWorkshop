@@ -48,7 +48,7 @@ namespace Async.TPL
 
         static void RunFileProcessing()
         {
-            Parallel.For(_totalProcessedDocs, _targetProcessedDocsCount, (_totalProcessedDocs) =>
+            Parallel.For(_totalProcessedDocs, _targetProcessedDocsCount, new ParallelOptions { MaxDegreeOfParallelism = _maxProcessedDocsAtGivenTime }, (_totalProcessedDocs) =>
             {
                 ProcessFile();
             });
